@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#signInLink,#signUpLink:hover{
+  cursor: pointer;
+}
+.outer-main {
+  background-image: url('./images/signInBackgroundjpg.jpg');
+  background-size: cover;
+}
+#sign-in{
+  transition: all 0.5s;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#sign-up{
+  transition: all 0.5s;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+h1,h2,h3,h4{
+font-family: 'Philosopher';
+}
+.main-div{
+  z-index: 1;
+  backface-visibility: hidden;
+  /* height: 600px; */
+  /* transform: translateX(-50%); */
+}
+.icon{
+  position: relative;
+  bottom: 20px;
 }
