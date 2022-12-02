@@ -1,0 +1,26 @@
+[
+    {
+        "src": "https://rukminim1.flixcart.com/image/612/612/xif0q/dress/w/7/k/l-b165-maroon-babiva-fashion-original-imag86pr4pqgr7xz-bb.jpeg?q=70",
+        "amount": "Rs. 1900",
+        "desc": "Long Red Dress",
+        "id":"1"
+    },
+    {
+        "src": "https://images.meesho.com/images/products/157652509/xbhjd_256.jpg",
+        "amount": "Rs. 1200",
+        "desc" : "Short Red Dress",
+        "id" : "2"
+    },
+    {
+        "src": "https://rukminim1.flixcart.com/image/612/612/xif0q/dress/t/g/w/m-ut-3006-aask-original-imag7xssme44aynm-bb.jpeg?q=70",
+        "amount": "Rs. 1000",
+        "desc" : "Beautiful Short Dress",
+        "id":"3"
+    },
+    {
+        "src": "https://assets.ajio.com/medias/sys_master/root/20220817/PdkB/62fc1f75f997dd394cf880ae/-473Wx593H-461655083-black-MODEL.jpg",
+        "amount": "Rs. 1500",
+        "desc" : "Long Black Dress",
+        "id" : "4"
+    }
+]

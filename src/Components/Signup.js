@@ -28,10 +28,10 @@ export const Signup = () => {
         res && navigate('/login')
     }
   return (
-    <div>
+    <div className='outer-main'>
         <div className="p-5 my-5 shadow col-lg-4 col-sm-12 col-md-6 main-div bg-info bg-opacity-10"  id="sign-up">
         
-        <h3 className="mt-4 text-center text-black">Create New Account</h3>
+        <h3 className="mt-4 text-center">Create New Account</h3>
         <form onSubmit={handleSignup}>
             <div className="mb-4 mt-3"> 
                 <input type="text" className="form-control" id="username" placeholder="Username" name="username" onChange={handleUsername} />

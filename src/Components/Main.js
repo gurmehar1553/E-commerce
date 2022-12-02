@@ -1,20 +1,18 @@
-import React from 'react'
-import Card from './Card'
+import React, { createContext, useState } from 'react'
+import Header from './Header'
+import { Link } from 'react-router-dom'
 
+const cartItems = createContext()
+const setCartItems = createContext()
 
 const Main = () => {
   return (
     <>
-      <div className='d-flex justify-content-around flex-wrap'>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-      </div>
+      <Header />
+      <Link to='/women'>Women's Section</Link><br/>
+      <Link to='/men'> Men's Section</Link><br/>
+      <Link to='/jewellery'>Jewellery Section</Link><br/>
+      <Link to='/electronics'> Electronics Section</Link><br/>
     </>
   )
 }
