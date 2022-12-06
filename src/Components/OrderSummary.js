@@ -27,7 +27,7 @@ const OrderSummary = () => {
       console.log(items)
       items.forEach(i => {
         tp = parseInt(tp) + parseInt(i.qty)*i.price
-        console.log(parseInt(i.qty)*i.price)
+        console.log(parseInt(i.qty)*(parseInt(i.price)))
       })
       setPrice(tp)
     //    const updatedData = data.filter((d) => {
