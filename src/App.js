@@ -8,11 +8,11 @@ import Women from "./Components/Women";
 import Men from "./Components/Men";
 import Jewellery from "./Components/Jewellery";
 import Electronics from "./Components/Electronics";
-// import {login,signup} from './server'
+import DetailedItem from "./Components/DetailedItem";
+import OrderSummary from "./Components/OrderSummary";
 
 const App = () => {
-    const [cartItems , setCartItems] = useState([])
-
+    const [items, setItems] = useState([])
     return (
         <>
             <Routes>
@@ -20,10 +20,12 @@ const App = () => {
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path='/main' element={<Main />}></Route>
                 <Route path="/cart" element={<Cart />}></Route>
-                <Route path="/women" element={<Women cartItems setCartItems />}></Route>
-                <Route path="/men" element={<Men cartItems setCartItems />}></Route>
-                <Route path="/jewellery" element={<Jewellery cartItems setCartItems />}></Route>
-                <Route path="/electronics" element={<Electronics cartItems setCartItems />}></Route>
+                <Route path="/women" element={<Women items={items} setItems={setItems} />}></Route>
+                <Route path="/men" element={<Men items={items} setItems={setItems} />}></Route>
+                <Route path="/jewellery" element={<Jewellery items={items} setItems={setItems} />}></Route>
+                <Route path="/electronics" element={<Electronics items={items} setItems={setItems} />}></Route>
+                <Route path="/details" element={<DetailedItem items={items} setItems={setItems} />}></Route>
+                <Route path="/order" element={<OrderSummary items={items} />}></Route>
             </Routes>
         </>
     )
