@@ -10,23 +10,26 @@ import Jewellery from "./Components/Jewellery";
 import Electronics from "./Components/Electronics";
 import DetailedItem from "./Components/DetailedItem";
 import OrderSummary from "./Components/OrderSummary";
+import { AuthProvider } from "./utils/AuthProvider";
 
 const App = () => {
     const [items, setItems] = useState([])
     return (
         <>
-            <Routes>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/signup" element={<Signup />}></Route>
-                <Route path='/main' element={<Main />}></Route>
-                <Route path="/cart" element={<Cart />}></Route>
-                <Route path="/women" element={<Women items={items} setItems={setItems} />}></Route>
-                <Route path="/men" element={<Men items={items} setItems={setItems} />}></Route>
-                <Route path="/jewellery" element={<Jewellery items={items} setItems={setItems} />}></Route>
-                <Route path="/electronics" element={<Electronics items={items} setItems={setItems} />}></Route>
-                <Route path="/details" element={<DetailedItem items={items} setItems={setItems} />}></Route>
-                <Route path="/order" element={<OrderSummary items={items} />}></Route>
-            </Routes>
+            <AuthProvider>
+                <Routes>
+                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/signup" element={<Signup />}></Route>
+                    <Route path="/cart" element={<Cart />}></Route>
+                    <Route path="/main" element={<Main />}></Route>
+                    <Route path="/women" element={<Women items={items} setItems={setItems} />}></Route>
+                    <Route path="/men" element={<Men items={items} setItems={setItems} />}></Route>
+                    <Route path="/jewellery" element={<Jewellery items={items} setItems={setItems} />}></Route>
+                    <Route path="/electronics" element={<Electronics items={items} setItems={setItems} />}></Route>
+                    <Route path="/details" element={<DetailedItem items={items} setItems={setItems} />}></Route>
+                    <Route path="/order" element={<OrderSummary items={items} />}></Route>
+                </Routes>
+            </AuthProvider>
         </>
     )
 }
