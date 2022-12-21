@@ -64,3 +64,98 @@ select{
 input{
   /* width: 50% !important; */
 }
+
+.main-sections{
+  height: 300px;
+  transition: all 0.5s;
+  padding: 0px !important;
+}
+
+.main-section1{
+  background-image: url('https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?w=2000') !important;
+  /* background-size: contain;
+  background-position: cover;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  -webkit-filter: blur(1px); */
+  filter: blur(3px);
+  -webkit-filter: blur(1px);
+  
+  /* Full height */
+  height: 300px; 
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-section2{
+    background-image: url('./assets/images/men.jpg');
+  /* background-size: contain;
+  background-position: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  
+  /* Full height */
+  height: 300px; 
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}   
+.main-section3{
+  background-image: url('./assets/images/jewellery.jpg');
+  /* background-size: contain;
+  background-position: cover;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  -webkit-filter: blur(1px); */
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  
+  /* Full height */
+  height: 300px; 
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-section4{
+  background-image: url('./assets/images/electronics.jpg');
+    /* background-size: contain;
+    background-position: cover;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+  -webkit-filter: blur(1px); */
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  
+  /* Full height */
+  height: 300px; 
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-sec-text{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white !important;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: relative;
+  bottom: 170px;
+  left: 30px;
+  /* transform: translate(-50%,-50%); */
+  z-index: 2;
+  padding: 20px;
+  text-align: center;
+}

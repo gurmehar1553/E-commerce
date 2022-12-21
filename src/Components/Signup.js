@@ -49,11 +49,6 @@ export const Signup = () => {
             <div className="mb-4">
                 <input type="password" className="form-control" id="confirm_pwd" placeholder="Confirm Password" name="confirm_pwd" required />
             </div>
-            <div className="form-check mb-4">
-                <label className="form-check-label ">
-                <input className="form-check-input" type="checkbox" name="remember" /> Remember me
-                </label>
-            </div>
             <button type="submit" className="btn btn-primary w-100 mb-4">Sign Up</button>
           </form>
         <p >Already have an account? <Link to="/login">LogIn</Link></p>

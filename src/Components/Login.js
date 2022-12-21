@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import { login } from '../server'
+import AuthContext from '../utils/AuthProvider'
 
 
 export const Login = () => {
     const [username,setUsername] = useState('')
     const [password,setPwd] = useState('')
     const navigate = useNavigate()
+    const {setAuth} = useContext(AuthContext)
+
     const handlePwd = (e) => {
         setPwd(e.target.value)
     }
@@ -21,10 +24,9 @@ export const Login = () => {
         }
         const res = await login(newObj);
         console.log("Response : ",res)
-        if(res===false){
-            return alert("Wrong username or password")
-        }
+        
         localStorage.setItem('authToken',res.token)
+        setAuth(true)
         res && navigate('/main')
     }
   return (

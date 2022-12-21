@@ -1,33 +1,48 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { deleteFromCart, handleAddToCart } from '../server';
+import AuthContext from '../utils/AuthProvider';
 
 const CartItems = ({allItems,items,setItems}) => {
     const [size,setSize] = useState(allItems.size);
   const [qty, setQty] = useState(allItems.qty);
-    let condition = items && (items.map(i => {return JSON.stringify(i.cardData)})).includes(JSON.stringify(allItems.cardData))
-  const addToCart = () => {
-    console.log(condition)
-    if(!condition){
-      const newObj = {
-        cardData: allItems.cardData,
-        size : allItems.size,
-        qty : allItems.qty
+  const {auth,currUser} = useContext(AuthContext)
+  let condition = true
+    const addToCart = async () => {
+      if(auth){
+        console.log(condition)
+        console.log(allItems.cardData)
+        const newObj = {
+            cardData: allItems.cardData,
+            size : size,
+            qty : qty,
+            currUser: currUser
+          }
+          console.log(newObj)
+        if(!condition){
+          
+          const res = await handleAddToCart(newObj)
+          console.log("Response from cart ",res)
+          console.log(items)
+          const newItems = [...items,newObj]
+          setItems(newItems)
+          localStorage.setItem('CartItems',JSON.stringify(newItems))
+          
+        }
+        else{
+          const res = await deleteFromCart(newObj)
+          console.log(res)
+          const updatedItems = items.filter(e => {
+                          return JSON.stringify(e.cardData)!== JSON.stringify(allItems.cardData)
+                        })
+          setItems(updatedItems)
+        }
+        condition = !condition
       }
-      console.log(items)
-      const newItems = [...items,newObj]
-      setItems(newItems)
-      localStorage.setItem('CartItems',JSON.stringify(newItems))
-      
+      else{
+        alert("Kindly login your account to add items in the cart!")
+      }
     }
-    else{
-      const updatedItems = items.filter(e => {
-                      return JSON.stringify(e.cardData)!== JSON.stringify(allItems.cardData)
-                    })
-      setItems(updatedItems)
-      localStorage.setItem('CartItems',JSON.stringify(updatedItems))
-    }
-    condition = !condition
-  }
   const selectSize = (e) => {
         setSize(e.target.value)
   }
