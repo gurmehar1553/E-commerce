@@ -91,8 +91,8 @@ const Card = ({cardData,setItems, items}) => {
                     </select>
                     </div>
                     <div>
-              <Link to='/details' state={{ from : cardData}} className='btn btn-info mx-1 '>View</Link>
-                <button className='btn btn-primary' onClick={addToCart}><i className="fas fa-shopping-cart fa-xl add-cart"></i>
+              <Link to='/details' state={{ from : cardData}} className='btn btn-warning mx-1 '>View</Link>
+                <button className='btn btn-dark' onClick={addToCart}><i className="fas fa-shopping-cart fa-xl add-cart"></i>
                     {condition? "Remove From Cart" : "Add To Cart"}
                 </button>
               </div>

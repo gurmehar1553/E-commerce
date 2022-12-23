@@ -33,7 +33,7 @@ export const Signup = () => {
     }
   return (
     <div className='outer-main'>
-        <div className="p-5 my-5 shadow col-lg-4 col-sm-12 col-md-6 main-div bg-info bg-opacity-10"  id="sign-up">
+        <div className="p-5 my-5 shadow col-lg-4 col-sm-12 col-md-6 main-div bg-warning bg-opacity-10"  id="sign-up">
         
         <h3 className="mt-4 text-center">Create New Account</h3>
         <form onSubmit={handleSignup}>
@@ -49,7 +49,7 @@ export const Signup = () => {
             <div className="mb-4">
                 <input type="password" className="form-control" id="confirm_pwd" placeholder="Confirm Password" name="confirm_pwd" required />
             </div>
-            <button type="submit" className="btn btn-primary w-100 mb-4">Sign Up</button>
+            <button type="submit" className="btn btn-warning w-100 mb-4">Sign Up</button>
           </form>
         <p >Already have an account? <Link to="/login">LogIn</Link></p>
     </div>

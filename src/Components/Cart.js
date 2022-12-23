@@ -10,7 +10,7 @@ import Header from './Header'
 const EmptyCart = () => {
   return (
     <>
-      <div className='container m-5 p-5 bg-info bg-opacity-25'>
+      <div className='container m-5 p-5 bg-warning bg-opacity-25'>
         <div className='row'>
             <div className='col-md-6'>
                 <img src="https://cdni.iconscout.com/illustration/free/thumb/empty-cart-4085814-3385483.png" alt='' width="100%" />
@@ -29,7 +29,7 @@ const EmptyCart = () => {
 const CartWithoutLogin = () => {
     return (
       <>
-        <div className='container m-5 p-5 bg-info bg-opacity-25'>
+        <div className='container m-5 p-5 bg-warning bg-opacity-25'>
         <div className='row'>
             <div className='col-md-6'>
                 <img src="https://cdni.iconscout.com/illustration/free/thumb/empty-cart-4085814-3385483.png" alt='' width="100%" />
@@ -71,14 +71,14 @@ const Cart = () => {
       {
         items.length===0 &&  <EmptyCart />
       }
-        <div className='container m-5 bg-info bg-opacity-25'>
+        <div className='container m-5'>
         <div className='col-md-2 float-end'>
         {
           items.length!==0 && <div><button className='btn btn-warning my-3' onClick={removeAll}>Remove all items from cart</button>  <Link to='/order' state={{from : items}} className='btn btn-danger'>Proceed To Payment</Link></div>
         }
           
         </div>
-        <div className='d-flex flex-row justify-content-around flex-wrap'>
+        <div className='d-flex flex-row justify-content-around flex-wrap cart-outer'>
           {
             items.map((i,id) => {
               return <CartItems allItems={i} items={items} setItems={setItems} key={id+"hnji"} />
