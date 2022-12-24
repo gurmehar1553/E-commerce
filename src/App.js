@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Login } from "./Components/Login";
 import { Signup } from "./Components/Signup";
 import {Navigate, Route,Routes} from 'react-router-dom'
@@ -10,13 +10,22 @@ import Jewellery from "./Components/Jewellery";
 import Electronics from "./Components/Electronics";
 import DetailedItem from "./Components/DetailedItem";
 import OrderSummary from "./Components/OrderSummary";
-import { AuthProvider } from "./utils/AuthProvider";
+import AuthContext, { AuthProvider } from "./utils/AuthProvider";
+import { getCardData } from "./server";
 
 const App = () => {
     const [items, setItems] = useState([])
-    return (
+    const {auth,currUser} = useContext(AuthContext)
+    console.log(currUser)
+    useEffect(()=>{
+        // getCardData().then(res => setItems(res))
+        if(auth){
+            setItems(currUser.cardData)
+        }
+      },[])
+    return ( 
         <>
-            <AuthProvider>
+            
                 <Routes>
                     <Route path="/" element={<Navigate to="/main" />}></Route>
                     <Route path="/login" element={<Login />}></Route>
@@ -30,7 +39,7 @@ const App = () => {
                     <Route path="/details" element={<DetailedItem items={items} setItems={setItems} />}></Route>
                     <Route path="/order" element={<OrderSummary items={items} />}></Route>
                 </Routes>
-            </AuthProvider>
+            
         </>
     )
 }

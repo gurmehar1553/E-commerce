@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import { login } from '../server'
+import { login, setToken } from '../server'
 import AuthContext from '../utils/AuthProvider'
 
 
@@ -8,7 +8,7 @@ export const Login = () => {
     const [username,setUsername] = useState('')
     const [password,setPwd] = useState('')
     const navigate = useNavigate()
-    const {setAuth} = useContext(AuthContext)
+    const {setAuth,setCurrUser} = useContext(AuthContext)
 
     const handlePwd = (e) => {
         setPwd(e.target.value)
@@ -25,8 +25,11 @@ export const Login = () => {
         const res = await login(newObj);
         console.log("Response : ",res)
         
-        localStorage.setItem('authToken',res.token)
+        // localStorage.setItem('authToken',res.token)
+        setToken(res.token)
+        console.log(localStorage.getItem('authToken'))
         setAuth(true)
+        setCurrUser(res.user)
         res && navigate('/main')
     }
   return (

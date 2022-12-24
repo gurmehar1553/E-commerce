@@ -39,12 +39,12 @@ const Main = () => {
           <h1 className='mx-5'>Shop-With-Ease</h1><p>Welcome to our online store! Here you'll find a wide selection of products at great prices</p>
           <p>Find the perfect products for any occasion at our online store. Shop now and enjoy fast, convenient shipping</p>
           <p>Experience the best in online shopping with our user-friendly e-commerce store. Browse our selection of products today.</p>
-          <button className='btn btn-warning mx-5 btn-main'>Get Started</button> <button className='btn btn-dark mx-5 btn-main'>Recently Added</button>
+          <a className='btn btn-warning mx-5 btn-main' href='#categories'>Get Started</a> <a className='btn btn-dark mx-5 btn-main' href='#carouselExampleIndicator'>Recently Added</a>
         </div>
       </div>
       
       <div className=' m-0 p-0 p-lg-5 m-lg-5'>
-          <div className='row justify-content-around shadow bg-dark bg-opacity-10 m-sm-3 p-sm-1 p-md-5 m-md-5'>
+          <div className='row justify-content-around shadow bg-dark bg-opacity-10 m-sm-3 p-sm-1 p-md-5 m-md-5' id='categories'>
               <div className="m-md-2 shadow main-sections col-sm-12 col-md-6 col-xl-4">
                 <div className='main-section1'></div>
                   <h4><Link className='main-sec-text text-decoration-none' to='/women'>Women's Section</Link></h4>                  

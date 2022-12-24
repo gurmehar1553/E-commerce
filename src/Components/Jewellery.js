@@ -14,9 +14,6 @@ const Jewellery = ({items,setItems}) => {
             }))
         })
     },[])
-    useEffect(()=>{
-        getCardData().then(res => setItems(res))
-      },[])
   return (
     <>
         <Header />
