@@ -28,22 +28,23 @@ const Header = () => {
     }
     return (
       <>
-          <button onClick={handleLogout} className='btn btn-warning'>Logout</button>
+          <button onClick={handleLogout} className='btn btn-warning btn-main'>Logout</button>
       </>
     )
   }
   
 
   return (
-    <div className='header p-3 d-flex justify-content-between'>
-        <div>
+    <div className='header p-3 d-flex justify-content-center'>
+        {/* <div>
           
-        </div>
-        <div className='d-flex justify-content-around' style={{width:"600px"}}>
-            <div><Link className='text-black text-decoration-none' to='/women'>Women</Link></div>
-            <div><Link className='text-black text-decoration-none' to='/men'>Men</Link></div>
-            <div><Link className='text-black text-decoration-none' to='/jewellery'>Jewellery</Link></div>
-            <div><Link className='text-black text-decoration-none' to='/electronics'>Electronics</Link></div>
+        </div> */}
+        <div className='d-flex justify-content-around' style={{width:"60%"}}>
+            <div><Link className='text-black text-decoration-none header-nav active' to='/main'>Home</Link></div>
+            <div><Link className='text-black text-decoration-none header-nav' to='/women'>Women</Link></div>
+            <div><Link className='text-black text-decoration-none header-nav' to='/men'>Men</Link></div>
+            <div><Link className='text-black text-decoration-none header-nav' to='/jewellery'>Jewellery</Link></div>
+            <div><Link className='text-black text-decoration-none header-nav' to='/electronics'>Electronics</Link></div>
             { (auth)? <Logout /> : <LoginSignup />}
             <Link to='/cart' className='text-black text-decoration-none'>
               <i className="fas fa-shopping-cart fa-xl text-black"></i> &nbsp;

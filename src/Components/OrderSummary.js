@@ -27,7 +27,7 @@ const OrderSummary = () => {
   return (
     <>
         <Header />
-        <div className='bg-info bg-opacity-10 mx-auto p-5 d-flex flex-column justify-content-center align-items-center ' style={{width:"50%"}}>
+        <div className='bg-warning bg-opacity-10 mx-auto p-5 d-flex flex-column justify-content-center align-items-center ' style={{width:"50%"}}>
             <div className='text-center'>
                 <h3>Order Summary</h3>
                 <h4>Total number of items : {items.length}</h4>

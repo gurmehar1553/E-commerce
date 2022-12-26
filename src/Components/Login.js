@@ -31,7 +31,7 @@ export const Login = () => {
     }
   return (
     <div className='outer-main' >
-        <div className="p-5 my-5 shadow col-lg-4 col-sm-12 col-md-6 main-div bg-info bg-opacity-10"  id="sign-in">
+        <div className="p-5 my-5 shadow col-lg-4 col-sm-12 col-md-6 main-div bg-warning bg-opacity-10"  id="sign-in">
             <div className="mx-auto col-md-5">
                 {/* <img className="light-mode-item navbar-brand-item" src="images/logo.png" alt="logo" style={{"height": "36px"}} /> */}
             </div>
@@ -42,7 +42,7 @@ export const Login = () => {
                 <div className="mb-5">
                     <input type="password" className="form-control" id="pwd" placeholder="Password" name="pswd" onChange={handlePwd} />
                 </div>
-                <button type="submit" className="btn btn-primary w-100 mb-4">Login</button>
+                <button type="submit" className="btn btn-warning w-100 mb-4">Login</button>
             </form>
             <p>Create a new account? <Link to="/signup">Sign Up</Link></p>
         </div>
