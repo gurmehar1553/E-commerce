@@ -16,9 +16,6 @@ const Women = ({items,setItems}) => {
         .catch(e => e.message)
         
     },[])
-    useEffect(()=>{
-      getCardData().then(res => setItems(res))
-    },[])
   return (
     <>
         <Header />

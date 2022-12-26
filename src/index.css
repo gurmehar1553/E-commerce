@@ -23,6 +23,7 @@ button,Link{
   box-shadow: 2px 2px 20px 4px #a09d94;
 }
 
+
 .header-nav:active{
   border-bottom: solid #8f7d47;
 }
@@ -34,6 +35,7 @@ button,Link{
 
 .btn-main{
   transition: all 0.5s;
+  box-shadow: 2px 2px 20px 4px #a09d94;
 }
 
 .btn-main:hover{
@@ -203,8 +205,11 @@ input{
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: relative;
-  bottom: 170px;
-  left: 30px;
+  bottom: 146px;
+  left: 20%;
+  /* transform: translateX(-50%); */
+  /* bottom: 170px;
+  left: 30px; */
   /* transform: translate(-50%,-50%); */
   z-index: 2;
   padding: 20px;
@@ -223,5 +228,11 @@ input{
 @media screen and (max-width:800px) {
   body{
     background-image: none;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .header-main{
+    width:"100%" !important;
   }
 }

@@ -14,9 +14,6 @@ const Electronics = ({items,setItems}) => {
             }))
         })
     },[])
-    useEffect(()=>{
-        getCardData().then(res => setItems(res))
-      },[])
   return (
     <>
         <Header />

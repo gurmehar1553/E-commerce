@@ -11,7 +11,7 @@ const Card = ({cardData,setItems, items}) => {
   //   return JSON.stringify(i);
   // })
   console.log(items)
-  let condition = items && (items.map(i => {return JSON.stringify(i.cardData)})).includes(JSON.stringify(cardData))
+  let condition = (items.authStatus || auth)? (items.map(i => {return JSON.stringify(i.cardData)})).includes(JSON.stringify(cardData)) : false
   const addToCart = async () => {
     if(auth){
       console.log(condition)

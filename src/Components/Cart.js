@@ -37,8 +37,8 @@ const CartWithoutLogin = () => {
             <div className='col-md-6 my-5 py-5'>
                 <h1>You are currently logged out!</h1> 
                 <p> Kindly login to add items in your cart or Create an account if you are a new user</p>
-                <Link to='/login' className='btn btn-primary m-3'>Login</Link>
-                <Link to='/signup' className='btn btn-info'>Signup</Link>
+                <Link to='/login' className='btn btn-warning m-3'>Login</Link>
+                <Link to='/signup' className='btn btn-dark'>Signup</Link>
             </div>
         </div>
       </div>

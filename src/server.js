@@ -50,4 +50,4 @@ const removeAllItems = async () => {
     return res.data
 }
 
-export  {login,signup,verifyAuth,getCardData,handleAddToCart,deleteFromCart,removeAllItems}
+export  {login,signup,verifyAuth,getCardData,handleAddToCart,deleteFromCart,removeAllItems,setToken}
