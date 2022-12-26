@@ -2,7 +2,6 @@ import React, {  useEffect, useState } from 'react'
 import Card from './Card'
 import axios from 'axios'
 import Header from './Header'
-import { getCardData } from '../server'
 
 const Women = ({items,setItems}) => {
     const [data, setData] = useState([])
