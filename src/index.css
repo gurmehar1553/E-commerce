@@ -5,6 +5,9 @@ body{
 #signInLink,#signUpLink:hover{
   cursor: pointer;
 }
+.main-sections:hover{
+  scale: 0.9;
+}
 .outer-main {
   /* background-image: url('https://img.freepik.com/free-photo/stylish-young-woman-posing-with-shopping-bags-after-great-shopping_176420-9041.jpg?w=996&t=st=1669987399~exp=1669987999~hmac=ca4449d1acbde2caf6391aefaf9288672a07f924d01079b0c189776dc5b0c27f');
   background-size: contain;
@@ -52,4 +55,12 @@ font-family: 'Philosopher';
 
 .card-items:hover{
   cursor: pointer;
+}
+
+select{
+  width: 70px !important;
+}
+
+input{
+  /* width: 50% !important; */
 }

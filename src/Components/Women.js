@@ -3,8 +3,7 @@ import Card from './Card'
 import axios from 'axios'
 import Header from './Header'
 
-const Women = ({cartItems, setCartItems}) => {
-    // const [cartItems , setCartItems] = useState([])
+const Women = ({items,setItems}) => {
     const [data, setData] = useState([])
     useEffect(() => {
         const promise = axios.get('https://fakestoreapi.com/products')
@@ -14,6 +13,14 @@ const Women = ({cartItems, setCartItems}) => {
             }))
         })
         .catch(e => e.message)
+        
+    },[])
+    useEffect(()=>{
+      if(localStorage.getItem("CartItems")){
+        const arr = JSON.parse(localStorage.getItem("CartItems"))
+        console.log(arr)
+        setItems([...arr])
+      }
     },[])
   return (
     <>
@@ -24,8 +31,8 @@ const Women = ({cartItems, setCartItems}) => {
                 return <Card 
                         cardData={e}
                         key={e.id+'ok'}
-                        setCartItems={setCartItems}
-                        cartItems={cartItems}
+                        setItems={setItems}
+                        items={items}
                         />
             })
         }
