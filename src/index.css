@@ -1,10 +1,16 @@
+body{
+  background-color: #a8b7ce;
+}
 
 #signInLink,#signUpLink:hover{
   cursor: pointer;
 }
 .outer-main {
-  background-image: url('./images/signInBackgroundjpg.jpg');
-  background-size: cover;
+  /* background-image: url('https://img.freepik.com/free-photo/stylish-young-woman-posing-with-shopping-bags-after-great-shopping_176420-9041.jpg?w=996&t=st=1669987399~exp=1669987999~hmac=ca4449d1acbde2caf6391aefaf9288672a07f924d01079b0c189776dc5b0c27f');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh; */
 }
 #sign-in{
   transition: all 0.5s;
@@ -23,6 +29,7 @@
 }
 h1,h2,h3,h4{
 font-family: 'Philosopher';
+/* color: #fff; */
 }
 .main-div{
   z-index: 1;
@@ -33,4 +40,16 @@ font-family: 'Philosopher';
 .icon{
   position: relative;
   bottom: 20px;
+}
+.header{
+  background-color: #7d08e8;
+
+}
+
+.card-items{
+  transition: all 0.5s;
+}
+
+.card-items:hover{
+  cursor: pointer;
 }
