@@ -18,6 +18,7 @@ const Women = ({items,setItems}) => {
     },[])
   return (
     <>
+    
         <Header />
         <div className='d-flex justify-content-around flex-wrap p-5 m-5'>
         {
