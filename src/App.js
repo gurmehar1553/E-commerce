@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Login } from "./Components/Login";
 import { Signup } from "./Components/Signup";
-import {Route,Routes} from 'react-router-dom'
+import {Navigate, Route,Routes} from 'react-router-dom'
 import  Main  from './Components/Main'
 import Cart from "./Components/Cart";
 import Women from "./Components/Women";
@@ -18,6 +18,7 @@ const App = () => {
         <>
             <AuthProvider>
                 <Routes>
+                    <Route path="/" element={<Navigate to="/main" />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/signup" element={<Signup />}></Route>
                     <Route path="/cart" element={<Cart />}></Route>

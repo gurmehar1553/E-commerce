@@ -1,36 +1,44 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import AuthContext from '../utils/AuthProvider';
 import Header from './Header'
 
 const DetailedItem = ({items, setItems}) => {
   const [size,setSize] = useState("small");
   const [qty, setQty] = useState("1");
+  const {auth} = useContext(AuthContext)
+
     const location = useLocation()
     const { from } = location.state
     console.log(location)
     let condition = items && (items.map(i => {return JSON.stringify(i.cardData)})).includes(JSON.stringify(from))
   const addToCart = () => {
-    console.log(condition)
-    if(!condition){
-      const newObj = {
-        cardData: from,
-        size : size,
-        qty : qty
+    if(auth){
+      console.log(condition)
+      if(!condition){
+        const newObj = {
+          cardData: from,
+          size : size,
+          qty : qty
+        }
+        console.log(items)
+        const newItems = [...items,newObj]
+        setItems(newItems)
+        localStorage.setItem('CartItems',JSON.stringify(newItems))
+        
       }
-      console.log(items)
-      const newItems = [...items,newObj]
-      setItems(newItems)
-      localStorage.setItem('CartItems',JSON.stringify(newItems))
-      
+      else{
+        const updatedItems = items.filter(e => {
+                        return JSON.stringify(e.cardData)!== JSON.stringify(from)
+                      })
+        setItems(updatedItems)
+        localStorage.setItem('CartItems',JSON.stringify(updatedItems))
+      }
+      condition = !condition
     }
     else{
-      const updatedItems = items.filter(e => {
-                      return JSON.stringify(e.cardData)!== JSON.stringify(from)
-                    })
-      setItems(updatedItems)
-      localStorage.setItem('CartItems',JSON.stringify(updatedItems))
+      alert("Kindly login your account to add items in the cart!")
     }
-    condition = !condition
   }
   const selectSize = (e) => {
     setSize(e.target.value)

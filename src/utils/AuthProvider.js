@@ -13,11 +13,11 @@ export const AuthProvider = ({children}) => {
         if(authStatus){
             setAuth(true)
             setCurrUser(user)
-
         }
         else{
             setCurrUser(null)
         }
+        console.log(authStatus)
     }
 
     useEffect(()=>{

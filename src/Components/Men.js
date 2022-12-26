@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Card from './Card';
 import Header from './Header';
+import { getCardData } from '../server';
 
 const Men = ({items,setItems}) => {
     const [data, setData] = useState([])
     useEffect(() => {
-        const promise = axios.get('https://fakestoreapi.com/products')
+        const promise = axios.get('/addToCart')
         promise.then((ele) => {
             setData((ele.data).filter(e => {
                 return e.category === "men's clothing"
@@ -14,11 +15,7 @@ const Men = ({items,setItems}) => {
         })
     },[])
     useEffect(()=>{
-        if(localStorage.getItem("CartItems")){
-            const arr = JSON.parse(localStorage.getItem("CartItems"))
-            console.log(arr)
-            setItems([...arr])
-          }
+        getCardData().then(res => setItems(res))
       },[])
   return (
     <>

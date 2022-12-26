@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getCardData, removeAllItems } from '../server'
 import AuthContext from '../utils/AuthProvider'
 import Card from './Card'
 import CartItems from './CartItems'
@@ -48,40 +49,22 @@ const CartWithoutLogin = () => {
 const Cart = () => {
   const [items, setItems] = useState([])
   const [data, setData] = useState([])
-  const {auth} = useContext(AuthContext)
+  const {auth,currUser} = useContext(AuthContext)
+  
   useEffect(() => {
-    if(localStorage.getItem("CartItems")){
-      const arr = JSON.parse(localStorage.getItem("CartItems"))
-      console.log(arr)
-      setItems([...arr])
-    }
-    const promise = axios.get('https://fakestoreapi.com/products')
-         promise.then(ele => {
-            setData(ele.data)
-        })
-        .catch(e => e.message)
+    if(currUser !== null) {
+    console.log(currUser.cartArray)
+    getCardData().then(res => setItems(res))
+  }
   },[])
 
   if(!auth){
       return <CartWithoutLogin />
     }
-  const removeAll = () => {
+  const removeAll = async () => {
     setItems([])
-    localStorage.clear("CartItems")
+    await removeAllItems()
   }
-  console.log(items)
-  console.log(data)
-  const newArr = data.filter(e => {
-    let flag=false
-    items.forEach(i => {
-      if(JSON.stringify(i.cardData) === JSON.stringify(e) ){
-        flag=true
-        console.log(i)
-      }
-    })
-    return flag
-  })
-  console.log(newArr)
   return (
     <>
       <Header />
@@ -97,8 +80,8 @@ const Cart = () => {
         </div>
         <div className='d-flex flex-row justify-content-around flex-wrap'>
           {
-            items.map(i => {
-              return <CartItems allItems={i} items={items} setItems={setItems} />
+            items.map((i,id) => {
+              return <CartItems allItems={i} items={items} setItems={setItems} key={id+"hnji"} />
             })
           }
         </div>

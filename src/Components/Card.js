@@ -1,35 +1,52 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { deleteFromCart, handleAddToCart } from '../server';
+import AuthContext from '../utils/AuthProvider';
 
 const Card = ({cardData,setItems, items}) => {
   const [size,setSize] = useState("small");
   const [qty, setQty] = useState("1");
+  const {auth,currUser} = useContext(AuthContext)
   // const temItems = items.map(i => {
   //   return JSON.stringify(i);
   // })
+  console.log(items)
   let condition = items && (items.map(i => {return JSON.stringify(i.cardData)})).includes(JSON.stringify(cardData))
-  const addToCart = () => {
-    console.log(condition)
-    if(!condition){
+  const addToCart = async () => {
+    if(auth){
+      console.log(condition)
+      console.log(cardData)
       const newObj = {
-        cardData: cardData,
-        size : size,
-        qty : qty
+          cardData: cardData,
+          size : size,
+          qty : qty,
+          currUser: currUser
+        }
+        console.log(newObj)
+      if(!condition){
+        
+        const res = await handleAddToCart(newObj)
+        console.log("Response from cart ",res)
+        console.log(items)
+        const newItems = [...items,newObj]
+        setItems(newItems)
+        localStorage.setItem('CartItems',JSON.stringify(newItems))
+        
       }
-      console.log(items)
-      const newItems = [...items,newObj]
-      setItems(newItems)
-      localStorage.setItem('CartItems',JSON.stringify(newItems))
-      
+      else{
+        const res = await deleteFromCart(newObj)
+        console.log(res)
+        const updatedItems = items.filter(e => {
+                        return JSON.stringify(e.cardData)!== JSON.stringify(cardData)
+                      })
+        setItems(updatedItems)
+        localStorage.setItem('CartItems',JSON.stringify(updatedItems))
+      }
+      condition = !condition
     }
     else{
-      const updatedItems = items.filter(e => {
-                      return JSON.stringify(e.cardData)!== JSON.stringify(cardData)
-                    })
-      setItems(updatedItems)
-      localStorage.setItem('CartItems',JSON.stringify(updatedItems))
+      alert("Kindly login your account to add items in the cart!")
     }
-    condition = !condition
   }
   const selectSize = (e) => {
         setSize(e.target.value)
