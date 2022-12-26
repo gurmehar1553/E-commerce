@@ -7,9 +7,6 @@ const Card = ({cardData,setItems, items}) => {
   const [size,setSize] = useState("small");
   const [qty, setQty] = useState("1");
   const {auth,currUser} = useContext(AuthContext)
-  // const temItems = items.map(i => {
-  //   return JSON.stringify(i);
-  // })
   console.log(items)
   let condition = (items.authStatus || auth)? (items.map(i => {return JSON.stringify(i.cardData)})).includes(JSON.stringify(cardData)) : false
   const addToCart = async () => {
