@@ -1,47 +1,29 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import Header from './Header'
 
 const OrderSummary = () => {
-    const [data, setData] = useState([])
     const [price, setPrice] = useState()
     const [items, setItems] = useState([])
-    // const location = useLocation();
-    // const {from} = location.state
-    // console.log(from)
     useEffect(()=>{
-    //     const promise = axios.get('https://fakestoreapi.com/products')
-    //     promise.then(ele => {
-    //         console.log(ele.data)
-    //         setData(ele.data)
-    //     })
-    //    .catch(e => e.message)
-       if(localStorage.getItem("CartItems")){
-        const arr = JSON.parse(localStorage.getItem("CartItems"))
-        console.log(arr)
-        setItems([...arr])
-        console.log(items)
-      }
-      var tp = 0;
-      console.log(items)
-      items.forEach(i => {
-        tp = parseInt(tp) + parseInt(i.qty)*i.price
-        console.log(parseInt(i.qty)*(parseInt(i.price)))
-      })
-      setPrice(tp)
-    //    const updatedData = data.filter((d) => {
-    //         return from.includes(d.id)
-    //     })
-    //     console.log(updatedData)
-    //     var sum=0;
-    //     updatedData.forEach((e)=>{
-    //             sum += Math.round(e.price)
-    //     })
-    //     setPrice(sum)
-    //     console.log(sum)
+        if(localStorage.getItem("CartItems")){
+         const arr = JSON.parse(localStorage.getItem("CartItems"))
+         console.log(arr)
+         setItems([...arr])
+         console.log(items)
+       }
+       
     },[])
-    // console.log(data)
+
+    if(items.length && !price){
+        var tp = 0;
+       console.log(items)
+       items.forEach(i => {
+        console.log(parseFloat(i.cardData.price))
+         tp += (parseFloat(i.qty))*(parseFloat(i.cardData.price))
+         console.log(tp)
+       })
+       setPrice(tp)
+       } 
   return (
     <>
         <Header />

@@ -25,6 +25,10 @@ export const Signup = () => {
             password
         }
         const res = signup(newObj);
+        if(res === false){
+            alert("Username already exists")
+            return
+        }
         res && navigate('/login')
     }
   return (
@@ -34,16 +38,16 @@ export const Signup = () => {
         <h3 className="mt-4 text-center">Create New Account</h3>
         <form onSubmit={handleSignup}>
             <div className="mb-4 mt-3"> 
-                <input type="text" className="form-control" id="username" placeholder="Username" name="username" onChange={handleUsername} />
+                <input type="text" className="form-control" id="username" placeholder="Username" name="username" onChange={handleUsername} required />
             </div>
             <div className="mb-4 mt-3">
-                <input type="email" className="form-control" id="email" placeholder="Email" name="email" onChange={handleEmail} />
+                <input type="email" className="form-control" id="email" placeholder="Email" name="email" onChange={handleEmail} required />
             </div>
             <div className="mb-4">
-                <input type="password" className="form-control" id="pwd" placeholder="Password" name="pswd" onChange={handlePwd} />
+                <input type="password" className="form-control" id="pwd" placeholder="Password" name="pswd" onChange={handlePwd} required />
             </div>
             <div className="mb-4">
-                <input type="password" className="form-control" id="confirm_pwd" placeholder="Confirm Password" name="confirm_pwd" />
+                <input type="password" className="form-control" id="confirm_pwd" placeholder="Confirm Password" name="confirm_pwd" required />
             </div>
             <div className="form-check mb-4">
                 <label className="form-check-label ">

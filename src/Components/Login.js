@@ -13,14 +13,19 @@ export const Login = () => {
     const handleUsername=(e)=>{
         setUsername(e.target.value)
     }
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault()
         const newObj = {
             username,
             password
         }
-        const res = login(newObj);
-        res &&  navigate('/main')
+        const res = await login(newObj);
+        console.log("Response : ",res)
+        if(res===false){
+            return alert("Wrong username or password")
+        }
+        localStorage.setItem('authToken',res.token)
+        res && navigate('/main')
     }
   return (
     <div className='outer-main' >
