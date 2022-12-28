@@ -102,12 +102,14 @@ font-family: 'Philosopher';
 }
 
 .card-items{
-  transition: all 0.5s;
+  transition: all 0.2s;
   background-color: #eee2a1;
 }
 
 .card-items:hover{
   cursor: pointer;
+  background-color: #635e5e;
+  color: #fff;
 }
 
 select{
