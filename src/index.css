@@ -6,14 +6,21 @@ body{
   background-position: right;
 }
 
-/* .hero-section{
-  background-image: url('./assets/images/landingPage2.png') ;
-  background-size: 1520px 1000px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-position: right;
-} */
+body::-webkit-scrollbar{
+  position: absolute;
+  right: 0;
+  width: 12px;
+    -webkit-appearance: none;
+}
+body::-webkit-scrollbar-track{
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  /* background-color: rgba(32, 209, 59, 0.888); */
+  background-color: #b86401;
+  border: 1px solid #fff;
+  border-radius: 1rem;
+}
 
 .header-nav{
   transition: all 0.1s;
@@ -29,7 +36,6 @@ button,Link{
 }
 
 .header-nav:hover{
-    /* border-bottom: solid #ffc107; */
     border-bottom: solid #8f7d47;
 }
 
@@ -50,13 +56,6 @@ button,Link{
 .main-sections:hover{
   scale: 0.9;
 }
-.outer-main {
-  /* background-image: url('https://img.freepik.com/free-photo/stylish-young-woman-posing-with-shopping-bags-after-great-shopping_176420-9041.jpg?w=996&t=st=1669987399~exp=1669987999~hmac=ca4449d1acbde2caf6391aefaf9288672a07f924d01079b0c189776dc5b0c27f');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh; */
-}
 
 .carousel-out{
   background-color: #d7cfc0 !important;
@@ -64,7 +63,6 @@ button,Link{
 
 .carousel-main{
   margin-left: -30% !important;
-  /* margin-right: 11% !important; */
 }
 
 #sign-in{
@@ -102,14 +100,15 @@ font-family: 'Philosopher';
 }
 
 .card-items{
-  transition: all 0.2s;
+  transition: all 0.5s;
   background-color: #eee2a1;
 }
 
 .card-items:hover{
   cursor: pointer;
-  background-color: #635e5e;
-  color: #fff;
+  transform: scale(0.9);
+  /* background-color: #635e5e;
+  color: #fff; */
 }
 
 select{
